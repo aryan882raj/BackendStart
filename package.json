@@ -1,0 +1,23 @@
+{
+  "name": "backend-nodejs",
+  "version": "1.0.0",
+  "description": "complete Node.js",
+  "main": "NodeJSTry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryan882raj/BackendStart.git"
+  },
+  "author": "Aryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aryan882raj/BackendStart/issues"
+  },
+  "homepage": "https://github.com/aryan882raj/BackendStart#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

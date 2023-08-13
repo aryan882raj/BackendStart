@@ -1,24 +1,17 @@
-const fs =require('fs');
+const fs = require('fs');
 
-const requestHandler = (req,res) => {
-
+const requestHandler = (req, res) => {
     const url = req.url;
     const method = req.method;
-    
-    if(url==='/'){                          // url nothing
-        fs.readFile("message.text" , 'utf8', (err, data) => {
-            if(err){
-                console.log(err);
-            }
-            console.log(`DATA FROM FILE ` + data);
-            res.write('<html>');    
-            res.write('<head><title>ENTER MESSAGE</title></head>');
-            res.write(`<body>${data}</body>`);
-            res.write(`<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">SEND</button></form></body>`);
-            res.write('</html>');
-            return res.end();
-        })
-    }
+    if(url==='/'){  
+                                // url nothing
+        res.write('<html>');    
+        res.write('<head><title>ENTER MESSAGE</title></head>');
+        res.write(`<body><form action="/message" method="POST"><input type="text" name="message"><button type="submit">SEND</button></form></body>`);
+        res.write('</html>');
+        return res.end();
+        }
+
     if(url==='/message' && method==='POST'){  
         const body =[];
         req.on('data', (chunk)=>{               
