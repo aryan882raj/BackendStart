@@ -1,22 +1,21 @@
-// const http = require('http'); 
-// const routes = require('./app_route');            // import
-// const server = http.createServer(routes)          // use is instead (req,res)=>{}
-                                                  // or (routes.handler) // (routes.somtext)
 const express = require('express');
+const bodyParser = require('body-parser')
 const app = express();
 
-app.use((req , res , next)=>{
-    console.log("In the middleware");
-    next();                                           // to jump nextmiddleware
-})
-app.use((req , res , next)=>{
-    console.log("Another middleware");
-    // res.send('<h1>Hello Express</h1>')
-    res.send( { "name": 123 })
-})
-                  
+app.use(bodyParser.urlencoded());    
 
+app.use('/add-product',(req , res , next)=>{
+    res.send('<form action="/product" method="POST"><input type="text" name="title"><input type="number" name="count"><button button type="submit">Add</button></form>')
+})
+
+app.use('/product',(req , res , next)=>{ //app.post    // this also help to return post get also   app.use or app.get
+    console.log(req.body);               // beacaeuse of app.use(bodyParser.urlencoded());  we get output
+    res.redirect('/'); 
+})
+
+app.use('/',(req , res , next)=>{               
+    res.send('<h1>Hello Express</h1>')
+})
+                
 
 app.listen(3000);
-// const server = http.createServer(app)
-// server.listen(3000);
