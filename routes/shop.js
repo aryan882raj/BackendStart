@@ -3,9 +3,8 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 
-router.get('/',(req , res , next)=>{               
-    // res.send('<h1>Hello Express</h1>')
-    res.sendFile(path.join(__dirname,'views','shop.html'));
-})
+const shopController = require('../routes/controller/shop')
+
+router.get('/',shopController.getShop)
 
 module.exports = router;

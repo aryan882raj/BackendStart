@@ -20,7 +20,7 @@ app.use(contactRoutes)
 //     res.status(404).send('<h1>Page Not Found</h1>');
 // })
  app.use((req , res , next)=>{                           // for not exist url or page
-    res.status(404).sendFile(path.join(__dirname,'routes','views','sucess.html'));
+    res.status(404).sendFile(path.join(__dirname,'routes','views','pgnf.html'));
 })
                 
 app.listen(3000);
